@@ -1,0 +1,3 @@
+- SFX: Button click, sent to hell sound (trapdoor opens), sent to heaven sound (angelic ahh like harp sounds), character choices sound effect, main menu music
+- Characters: mix of evil looking characters + innocent (characters grow wings and fly upwards. only the wings need to be animated to flap)
+- Background: needs a trapdoor

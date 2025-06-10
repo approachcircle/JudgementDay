@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://b4p0pfy8axrie"]
+[gd_scene load_steps=2 format=3 uid="uid://b4p0pfy8axrie"]
+
+[ext_resource type="LabelSettings" uid="uid://1x53r2q3x8ee" path="res://assets/Title.tres" id="1_echbf"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 726.0
+offset_top = 471.0
+offset_right = 1244.0
+offset_bottom = 600.0
+text = "Main Scene"
+label_settings = ExtResource("1_echbf")

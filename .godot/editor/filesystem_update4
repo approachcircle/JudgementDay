@@ -1,2 +1,4 @@
+res://scenes/MainMenu.tscn
 res://scenes/MainScene.tscn
-res://scripts/game_behaviour.gd
+res://scripts/main_menu.gd
+res://scripts/decision.gd

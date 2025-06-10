@@ -1,0 +1,2 @@
+- 5-10 decisions per person
+- >0 = heaven, <0 = hell

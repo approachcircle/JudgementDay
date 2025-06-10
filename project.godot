@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="JudgementDay"
-run/main_scene="uid://b4p0pfy8axrie"
+run/main_scene="uid://jsr0jjdfq45j"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false

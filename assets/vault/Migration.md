@@ -1,0 +1,3 @@
+- Remove all religious imagery
+- Replace cross with judge gavel or scales
+- 
