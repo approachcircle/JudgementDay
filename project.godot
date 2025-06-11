@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="JudgementDay"
-run/main_scene="uid://jsr0jjdfq45j"
-config/features=PackedStringArray("4.4", "Forward Plus")
+run/main_scene="uid://bgdeq4eulxgoc"
+config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/show_image=false
+boot_splash/image="uid://5yk70bncooyn"
 config/icon="uid://5yk70bncooyn"
 
 [autoload]
 
-GameBehaviour="*res://scripts/game_behaviour.gd"
+GlobalBehaviour="*res://GlobalBehaviour.cs"
 
 [display]
 

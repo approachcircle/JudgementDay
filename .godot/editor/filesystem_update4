@@ -1,4 +1,12 @@
-res://scenes/MainMenu.tscn
+res://scenes/SplashScreen.tscn
+res://scripts/splash_screen.gd
 res://scenes/MainScene.tscn
-res://scripts/main_menu.gd
+res://scenes/MainMenu.tscn
 res://scripts/decision.gd
+res://Decisions.cs
+res://scripts/game_behaviour.gd
+res://assets/animated_splash.ogv
+res://MainMenu.cs
+res://SplashScreen.cs
+res://GlobalBehaviour.cs
+res://DecisionContainer.cs

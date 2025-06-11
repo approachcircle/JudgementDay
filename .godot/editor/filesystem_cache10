@@ -1,12 +1,24 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1749543302
-LICENSE.md::TextFile/TextFile::-1::1749494477::0::1::::<><><>0<>0<><>::
-README.md::TextFile/TextFile::-1::1749494477::0::1::::<><><>0<>0<><>::
-::res://assets/::1749494477
-judgement_logo.png::CompressedTexture2D/CompressedTexture2D::2155876005793485925::1749494477::1749494477::1::::<><><>0<>0<>af350bd8aee2d9b199aee120ce1ac49b<>res://.godot/imported/judgement_logo.png-ae1e55715bc912a3f9a27605b177c2d1.ctex::
-::res://scenes/::1749544339
-MainScene.tscn::PackedScene/PackedScene::4454407828427021488::1749494477::0::1::::<><><>0<>0<><>::
-MainMenu.tscn::PackedScene::669935712797062121::1749545141::0::1::::<><><>0<>0<><>::
-Title.tres::LabelSettings::1874263070316545992::1749545176::0::1::::<><><>0<>0<><>::
-::res://scripts/::1749494477
-game_behaviour.gd::GDScript/GDScript::5899109779884541062::1749494477::0::1::::<>Node<><>0<>0<><>::
+::res://::1749598082
+Decisions.cs::CSharpScript::8206785543598800257::1749598082::0::1::::<><><>0<>0<><>::
+LICENSE.md::TextFile/TextFile::-1::1749493440::0::1::::<><><>0<>0<><>::
+README.md::TextFile/TextFile::-1::1749493440::0::1::::<><><>0<>0<><>::
+::res://assets/::1749597984
+animated_splash.ogv::VideoStreamTheora::3373290141921362263::1749595495::0::1::::<><><>0<>0<><>::
+judgement_logo.png::CompressedTexture2D/CompressedTexture2D::2155876005793485925::1749595078::1749595101::1::::<><><>0<>0<>af350bd8aee2d9b199aee120ce1ac49b<>res://.godot/imported/judgement_logo.png-ae1e55715bc912a3f9a27605b177c2d1.ctex::
+Title.tres::LabelSettings/LabelSettings::1874263070316545992::1749591692::0::1::::<><><>0<>0<><>::
+::res://assets/vault/::1749591724
+Decisions.md::TextFile::-1::1749596564::0::1::::<><><>0<>0<><>::
+Design list.md::TextFile/TextFile::-1::1749591692::0::1::::<><><>0<>0<><>::
+Game notes.md::TextFile/TextFile::-1::1749591692::0::1::::<><><>0<>0<><>::
+Judgement day.md::TextFile/TextFile::-1::1749591692::0::1::::<><><>0<>0<><>::
+Migration.md::TextFile/TextFile::-1::1749591692::0::1::::<><><>0<>0<><>::
+::res://scenes/::1749598094
+MainMenu.tscn::PackedScene::669935712797062121::1749598120::0::1::::<><><>0<>0<><>::uid://dl4pra5on8d02::::res://scripts/main_menu.gd<>uid://1x53r2q3x8ee::::res://assets/Title.tres
+MainScene.tscn::PackedScene::4454407828427021488::1749598094::0::1::::<><><>0<>0<><>::uid://1x53r2q3x8ee::::res://assets/Title.tres
+SplashScreen.tscn::PackedScene::2814019849737710302::1749598120::0::1::::<><><>0<>0<><>::uid://dghp2qrqvck1i::::res://scripts/splash_screen.gd<>uid://bocbui0coip48::::res://assets/animated_splash.ogv
+::res://scripts/::1749598082
+game_behaviour.gd::GDScript::7031694846957645054::1749598082::0::1::::<>Node<><>0<>0<><>::
+decision.gd::GDScript::8232589377327392945::1749598082::0::1::::Decision<>Node<><>0<>0<><>::
+main_menu.gd::GDScript::7992147446352175249::1749598082::0::1::::<>Control<><>0<>0<><>::
+splash_screen.gd::GDScript::7595805595903243332::1749598082::0::1::::<>Control<><>0<>0<><>::

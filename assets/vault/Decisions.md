@@ -1,21 +1,24 @@
 ## Good
 - Saved Earth from total annihilation
-- Created world peace, and ending hunger and poverty
+- Created world peace, and ended hunger and poverty
 - Saved a child from a burning building
 - Committed to celibacy, used no foul language, loved thy neighbour etc
 - Fed a stray dog
 - Donated to charity
 - Paid for their friend's coffee
-- 
+- Always helped with house chores
+- Helped an elderly woman cross the street
+- Returned somebody's wallet which was dropped
+- Held the door open for somebody
 ## Bad
 - Ended world peace
 - Destroyed crucial technological advancements
 - Manufactured weapons of mass destruction
 - Talked loudly in an enclosed quiet space in public
 - Fed a stray dog chocolate and grapes knowingly
-- Burnt down an orphanage
+- Accidentally broke their neighbour's window
 - Stole masses of money from a charity
-- Abandoned your pet in public
+- Abandoned their pet in public
 - Falsely advertised
-- Cut the power to a hospital
-- 
+- Kicked a large rock at a parked car
+- Scammed thousands of people using cryptocurrency
