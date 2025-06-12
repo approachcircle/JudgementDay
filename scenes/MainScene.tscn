@@ -1,11 +1,122 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4p0pfy8axrie"]
+[gd_scene load_steps=17 format=3 uid="uid://b4p0pfy8axrie"]
 
 [ext_resource type="PackedScene" uid="uid://d18oag3yxsey8" path="res://scenes/Character.tscn" id="1_echbf"]
 [ext_resource type="Script" uid="uid://ctfll11hiqxa1" path="res://scripts/Main.cs" id="1_ibiss"]
+[ext_resource type="Texture2D" uid="uid://doq35abmoc6mf" path="res://assets/bg/bg_animation00.png" id="2_08o8g"]
+[ext_resource type="Texture2D" uid="uid://cl7yq5f0ljvjc" path="res://assets/bg/bg_animation01.png" id="3_0cxu4"]
+[ext_resource type="Texture2D" uid="uid://bwxhpv3wd1sbn" path="res://assets/speech_bubble.png" id="3_c6dvc"]
+[ext_resource type="Texture2D" uid="uid://do53avtmay1vx" path="res://assets/bg/bg_animation02.png" id="4_xnxdc"]
+[ext_resource type="Texture2D" uid="uid://bmor1j045pf8g" path="res://assets/bg/bg_animation03.png" id="5_0ehpd"]
+[ext_resource type="Texture2D" uid="uid://bjgmacieukdb2" path="res://assets/fire.png" id="5_k24pf"]
+[ext_resource type="Texture2D" uid="uid://dlwgtsawdo8cb" path="res://assets/bg/bg_animation04.png" id="6_8wjpf"]
+[ext_resource type="Texture2D" uid="uid://oogtbphh8k5l" path="res://assets/bg/bg_animation05.png" id="7_25dfr"]
+[ext_resource type="Texture2D" uid="uid://j4xaqsr5km7e" path="res://assets/bg/bg_animation06.png" id="8_kjvyo"]
+[ext_resource type="Texture2D" uid="uid://djpwp00gfw628" path="res://assets/bg/bg_animation07.png" id="9_2phbr"]
+[ext_resource type="Texture2D" uid="uid://xpqchvqqflb8" path="res://assets/bg/bg_animation08.png" id="10_mkg2b"]
+[ext_resource type="Texture2D" uid="uid://dmq8aysstm326" path="res://assets/bg/bg_animation09.png" id="11_1ns3k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_611at"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_08o8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0cxu4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xnxdc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0ehpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8wjpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_25dfr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kjvyo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2phbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mkg2b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_1ns3k")
+}],
+"loop": true,
+"name": &"drop",
+"speed": 13.0
+}]
+
+[sub_resource type="Theme" id="Theme_ibiss"]
+default_font_size = 22
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ibiss")
 
+[node name="bg" type="AnimatedSprite2D" parent="."]
+position = Vector2(960, 540)
+sprite_frames = SubResource("SpriteFrames_611at")
+animation = &"drop"
+frame_progress = 0.0870244
+
 [node name="Player" parent="." instance=ExtResource("1_echbf")]
-position = Vector2(112, 968)
+position = Vector2(179, 627)
 IsPlayer = true
+
+[node name="Speech" type="RichTextLabel" parent="."]
+offset_left = 813.0
+offset_top = 18.0
+offset_right = 1571.0
+offset_bottom = 445.0
+theme = SubResource("Theme_ibiss")
+
+[node name="Bubble" type="Sprite2D" parent="."]
+position = Vector2(1043, 200)
+scale = Vector2(0.945833, 0.607407)
+texture = ExtResource("3_c6dvc")
+
+[node name="bg_fixes" type="CanvasGroup" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="bg_fixes"]
+offset_left = 1359.0
+offset_top = 832.0
+offset_right = 1530.0
+offset_bottom = 1070.0
+color = Color(0.356863, 0.0235294, 0.0235294, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="bg_fixes"]
+offset_left = 1259.0
+offset_top = 960.0
+offset_right = 1359.0
+offset_bottom = 1080.0
+color = Color(0.129412, 0.0862745, 0.0627451, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="bg_fixes"]
+offset_left = 1530.0
+offset_top = 918.0
+offset_right = 1630.0
+offset_bottom = 1080.0
+color = Color(0.129412, 0.0862745, 0.0627451, 1)
+
+[node name="Fire" type="Sprite2D" parent="."]
+position = Vector2(1440, 1010)
+scale = Vector2(0.0750311, 0.0750311)
+texture = ExtResource("5_k24pf")
+
+[node name="Fire2" type="Sprite2D" parent="."]
+position = Vector2(1503, 1036)
+rotation = 0.117995
+scale = Vector2(0.0431196, 0.0431196)
+texture = ExtResource("5_k24pf")
+
+[node name="Fire3" type="Sprite2D" parent="."]
+position = Vector2(1378, 1043)
+rotation = -0.245343
+scale = Vector2(0.0356864, 0.0356864)
+texture = ExtResource("5_k24pf")

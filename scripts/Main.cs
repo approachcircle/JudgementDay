@@ -6,7 +6,7 @@ namespace JudgementDay;
 public partial class Main : Node2D
 {
     // private readonly Vector2 _targetPlayerPosition = new Vector2(112, 968);
-    private readonly Vector2 _targetCharacterPosition = new(1800, 968);
+    private readonly Vector2 _targetCharacterPosition = new(1440, 616);
     
     public override void _Ready()
     {
@@ -15,5 +15,18 @@ public partial class Main : Node2D
         characterNode.ChooseDecisions();
         characterNode.Position = _targetCharacterPosition;
         AddChild(characterNode);
+        RichTextLabel speech = GetNode<RichTextLabel>("Speech");
+        foreach (Decision decision in characterNode.Decisions)
+        {
+            if (decision.DecisionWeight > 0)
+            {
+                speech.Text = speech.Text += "\u2705";
+            }
+            else
+            {
+                speech.Text = speech.Text += "\u274C";
+            }
+            speech.Text = speech.Text + decision.DecisionDescription + "\n";
+        }
     }
 }

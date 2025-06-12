@@ -9,7 +9,7 @@ public partial class Character : Node2D
     [Export]
     public bool IsPlayer { get; set; }
 
-    private List<Decision> _decisions = [];
+    public List<Decision> Decisions = [];
     
     private Texture2D _texture;
     public Texture2D Texture
@@ -52,9 +52,9 @@ public partial class Character : Node2D
         for (int i = 0; i < State.DecisionsPerCharacter; i++)
         {
             Decision decision = DecisionManager.GetRandomDecision();
-            if (!_decisions.Contains(decision))
+            if (!Decisions.Contains(decision))
             {
-                _decisions.Add(decision);
+                Decisions.Add(decision);
                 continue;
             }
             // in case we run into the same decision twice, loop again
