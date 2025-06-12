@@ -1,6 +1,8 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace JudgementDay;
 
@@ -10,7 +12,8 @@ public partial class Character : Node2D
     public bool IsPlayer { get; set; }
 
     public List<Decision> Decisions = [];
-    
+    public bool IsGood { get; private set; }
+
     private Texture2D _texture;
     public Texture2D Texture
     {
@@ -33,23 +36,23 @@ public partial class Character : Node2D
     {
         
     }
-
+    
     private static Texture2D GetRandomConstrainedTexture()
     {
         int index;
         do
         {
-            index = new Random().Next(0, State.CharacterCount);
+            index = new Random().Next(0, Global.CharacterCount);
         }
-        while (State.UsedCharacters.Contains(index));
+        while (Global.UsedCharacters.Contains(index));
         
-        State.UsedCharacters.Add(index);
-        return State.CharacterTextures[index];
+        Global.UsedCharacters.Add(index);
+        return Global.CharacterTextures[index];
     }
 
     public void ChooseDecisions()
     {
-        for (int i = 0; i < State.DecisionsPerCharacter; i++)
+        for (int i = 0; i < Global.DecisionsPerCharacter; i++)
         {
             Decision decision = DecisionManager.GetRandomDecision();
             if (!Decisions.Contains(decision))
@@ -60,6 +63,7 @@ public partial class Character : Node2D
             // in case we run into the same decision twice, loop again
             i--;
         }
-        // _decisions.ForEach(decision => { GD.Print(decision.DecisionDescription); });
+
+        IsGood = Decisions.Sum(decision => decision.DecisionWeight) >= 0;
     }
 }

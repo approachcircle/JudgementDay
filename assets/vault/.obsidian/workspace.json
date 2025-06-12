@@ -77,8 +77,7 @@
               "title": "Migration"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -225,12 +224,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "76274dc43b1d3bbe",
+  "active": "30c8bde07afd7ebf",
   "lastOpenFiles": [
+    "Decisions.md",
     "Design list.md",
     "Judgement day.md",
     "Game notes.md",
-    "Decisions.md",
     "Migration.md"
   ]
 }

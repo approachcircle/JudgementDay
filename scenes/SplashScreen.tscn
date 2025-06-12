@@ -1,4 +1,4 @@
-[gd_scene load_steps=154 format=3 uid="uid://bgdeq4eulxgoc"]
+[gd_scene load_steps=145 format=3 uid="uid://bgdeq4eulxgoc"]
 
 [ext_resource type="Script" uid="uid://l80mch6nqjmg" path="res://scripts/SplashScreen.cs" id="1_l2g8s"]
 [ext_resource type="Texture2D" uid="uid://bxhbbowpjtabg" path="res://assets/loading/loading_0.png" id="4_vjpje"]
@@ -141,16 +141,6 @@
 [ext_resource type="Texture2D" uid="uid://d01nwcl0qfvgp" path="res://assets/splash/splash_frame77.png" id="139_el44p"]
 [ext_resource type="Texture2D" uid="uid://bpbkegcuaft3l" path="res://assets/splash/splash_frame78.png" id="140_yb16x"]
 [ext_resource type="Texture2D" uid="uid://c12kaio2axmlb" path="res://assets/splash/splash_frame79.png" id="141_evlht"]
-[ext_resource type="Texture2D" uid="uid://d1so8lbbwwgsc" path="res://assets/splash/splash_frame80.png" id="142_bylfp"]
-[ext_resource type="Texture2D" uid="uid://c5gv5lct1wipk" path="res://assets/splash/splash_frame81.png" id="143_w1hb8"]
-[ext_resource type="Texture2D" uid="uid://dhhfb5wbkecow" path="res://assets/splash/splash_frame82.png" id="144_mafu1"]
-[ext_resource type="Texture2D" uid="uid://caynp7o1mmnn8" path="res://assets/splash/splash_frame83.png" id="145_025n6"]
-[ext_resource type="Texture2D" uid="uid://chkiyn4u6yovl" path="res://assets/splash/splash_frame84.png" id="146_d830x"]
-[ext_resource type="Texture2D" uid="uid://dxef5viu52rfb" path="res://assets/splash/splash_frame85.png" id="147_5tbn1"]
-[ext_resource type="Texture2D" uid="uid://cx03elo7evfxg" path="res://assets/splash/splash_frame86.png" id="148_ylc5g"]
-[ext_resource type="Texture2D" uid="uid://gu5p5cyj33dc" path="res://assets/splash/splash_frame87.png" id="149_d6bgd"]
-[ext_resource type="Texture2D" uid="uid://c35ty1yyxwf42" path="res://assets/splash/splash_frame88.png" id="150_7ddlv"]
-[ext_resource type="Texture2D" uid="uid://bxrxvg1dkjsoy" path="res://assets/splash/splash_frame89.png" id="151_oexqr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_60xqj"]
 animations = [{
@@ -394,36 +384,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("141_evlht")
-}, {
-"duration": 1.0,
-"texture": ExtResource("142_bylfp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("143_w1hb8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("144_mafu1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("145_025n6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("146_d830x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("147_5tbn1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("148_ylc5g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("149_d6bgd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("150_7ddlv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("151_oexqr")
 }],
 "loop": false,
 "name": &"splash",
@@ -618,6 +578,9 @@ animations = [{
 "speed": 60.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_x8krg"]
+font_size = 32
+
 [node name="SplashScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -632,9 +595,19 @@ position = Vector2(960, 540)
 sprite_frames = SubResource("SpriteFrames_60xqj")
 animation = &"splash"
 
-[node name="Loading" type="AnimatedSprite2D" parent="."]
+[node name="Loading" type="CanvasGroup" parent="."]
 visible = false
+
+[node name="Loading" type="AnimatedSprite2D" parent="Loading"]
 position = Vector2(1792, 960)
 scale = Vector2(0.402344, 0.402344)
 sprite_frames = SubResource("SpriteFrames_l5tke")
 animation = &"spinner"
+
+[node name="Label" type="Label" parent="Loading"]
+offset_left = 1560.0
+offset_top = 936.0
+offset_right = 1709.0
+offset_bottom = 981.0
+text = "Loading..."
+label_settings = SubResource("LabelSettings_x8krg")

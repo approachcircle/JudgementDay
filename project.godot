@@ -18,10 +18,6 @@ boot_splash/show_image=false
 boot_splash/image="uid://5yk70bncooyn"
 config/icon="uid://5yk70bncooyn"
 
-[autoload]
-
-GlobalBehaviour="*res://scripts/GlobalBehaviour.cs"
-
 [display]
 
 window/size/viewport_width=1920

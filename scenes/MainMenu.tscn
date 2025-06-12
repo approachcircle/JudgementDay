@@ -46,6 +46,7 @@ theme = SubResource("Theme_yqorp")
 text = "Play"
 
 [node name="Player" type="AudioStreamPlayer" parent="."]
+volume_db = -8.0
 
 [node name="Gavel" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_2wh52")

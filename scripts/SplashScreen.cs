@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Threading;
 using Godot;
@@ -5,6 +6,7 @@ using Godot;
 namespace JudgementDay;
 
 // massively overengineered code incoming
+// accounts for slow hard drives/network access
 public partial class SplashScreen : Control
 {
 	// if the animation has finished
@@ -12,6 +14,7 @@ public partial class SplashScreen : Control
 	// if the thread has finished its work and the game is "loaded"
 	private bool _canTransfer;
 	private Thread _initialisationThread;
+	private CanvasGroup _loadingGroup;
 	private AnimatedSprite2D _loadingSprite;
 	private AnimatedSprite2D _splashSprite;
 	
@@ -22,7 +25,8 @@ public partial class SplashScreen : Control
 			GD.PushError("decision weights and rarities are not the same length!");
 			System.Environment.Exit(1);
 		}
-		_loadingSprite = GetNode<AnimatedSprite2D>("Loading");
+		_loadingGroup = GetNode<CanvasGroup>("Loading");
+		_loadingSprite = _loadingGroup.GetNode<AnimatedSprite2D>("Loading");
 		_splashSprite = GetNode<AnimatedSprite2D>("Splash");
 		_initialisationThread = new Thread(InitialiseGame);
 		_initialisationThread.Start();
@@ -37,13 +41,13 @@ public partial class SplashScreen : Control
 	{
 		// if the player is impatient, allow transfer as soon as the thread has finished its work
 		if (Input.IsActionJustPressed("ui_accept") && _canTransfer) Transfer();
-		_canTransfer = _initialisationThread.ThreadState is not ThreadState.WaitSleepJoin;
+		_canTransfer = _initialisationThread.ThreadState is not ThreadState.Running and not ThreadState.WaitSleepJoin;
 		// the thread is still doing work; not safe to transfer yet, so we'll show the player a spinner
 		if (_ready && !_canTransfer)
 		{
 			if (!_loadingSprite.IsPlaying())
 			{
-				_loadingSprite.Visible = true;
+				_loadingGroup.Visible = true;
 				_loadingSprite.Play("spinner");
 			}
 		}
@@ -52,6 +56,7 @@ public partial class SplashScreen : Control
 		{
 			Transfer();
 		}
+		Console.WriteLine(_initialisationThread.ThreadState);
 	}
 
 	private void Transfer()
@@ -69,9 +74,10 @@ public partial class SplashScreen : Control
 
 	private static void LoadCharacterTextures()
 	{
-		for (int i = 1; i < State.CharacterCount + 1; i++)
+		// make these not pre-determined, add custom hats, shirts, etc. to generate characters OTF
+		for (int i = 1; i < Global.CharacterCount + 1; i++)
 		{
-			State.CharacterTextures[i - 1] = GD.Load<Texture2D>($"res://assets/chars/character{i}.png");
+			Global.CharacterTextures[i - 1] = GD.Load<Texture2D>($"res://assets/chars/character{i}.png");
 		}
 	}
 

@@ -3,7 +3,7 @@ using Godot;
 
 namespace JudgementDay;
 
-public static class State
+public static class Global
 {
     public static readonly List<int> UsedCharacters = [];
     public const int CharacterCount = 34;

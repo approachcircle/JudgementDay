@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://b4p0pfy8axrie"]
+[gd_scene load_steps=18 format=3 uid="uid://b4p0pfy8axrie"]
 
 [ext_resource type="PackedScene" uid="uid://d18oag3yxsey8" path="res://scenes/Character.tscn" id="1_echbf"]
 [ext_resource type="Script" uid="uid://ctfll11hiqxa1" path="res://scripts/Main.cs" id="1_ibiss"]
 [ext_resource type="Texture2D" uid="uid://doq35abmoc6mf" path="res://assets/bg/bg_animation00.png" id="2_08o8g"]
 [ext_resource type="Texture2D" uid="uid://cl7yq5f0ljvjc" path="res://assets/bg/bg_animation01.png" id="3_0cxu4"]
-[ext_resource type="Texture2D" uid="uid://bwxhpv3wd1sbn" path="res://assets/speech_bubble.png" id="3_c6dvc"]
 [ext_resource type="Texture2D" uid="uid://do53avtmay1vx" path="res://assets/bg/bg_animation02.png" id="4_xnxdc"]
 [ext_resource type="Texture2D" uid="uid://bmor1j045pf8g" path="res://assets/bg/bg_animation03.png" id="5_0ehpd"]
 [ext_resource type="Texture2D" uid="uid://bjgmacieukdb2" path="res://assets/fire.png" id="5_k24pf"]
@@ -14,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://djpwp00gfw628" path="res://assets/bg/bg_animation07.png" id="9_2phbr"]
 [ext_resource type="Texture2D" uid="uid://xpqchvqqflb8" path="res://assets/bg/bg_animation08.png" id="10_mkg2b"]
 [ext_resource type="Texture2D" uid="uid://dmq8aysstm326" path="res://assets/bg/bg_animation09.png" id="11_1ns3k"]
+[ext_resource type="Texture2D" uid="uid://wl61gnab7l3k" path="res://assets/speech_bubble_with_bg.png" id="13_08o8g"]
+[ext_resource type="Theme" uid="uid://clh4c3g4c8du1" path="res://assets/AcceptDeny.tres" id="15_0cxu4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_611at"]
 animations = [{
@@ -48,9 +49,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("11_1ns3k")
 }],
-"loop": true,
+"loop": false,
 "name": &"drop",
-"speed": 13.0
+"speed": 18.0
 }]
 
 [sub_resource type="Theme" id="Theme_ibiss"]
@@ -63,11 +64,17 @@ script = ExtResource("1_ibiss")
 position = Vector2(960, 540)
 sprite_frames = SubResource("SpriteFrames_611at")
 animation = &"drop"
-frame_progress = 0.0870244
+frame = 9
+frame_progress = 1.0
 
 [node name="Player" parent="." instance=ExtResource("1_echbf")]
 position = Vector2(179, 627)
 IsPlayer = true
+
+[node name="Bubble" type="Sprite2D" parent="."]
+position = Vector2(1043, 200)
+scale = Vector2(0.945833, 0.607407)
+texture = ExtResource("13_08o8g")
 
 [node name="Speech" type="RichTextLabel" parent="."]
 offset_left = 813.0
@@ -75,11 +82,9 @@ offset_top = 18.0
 offset_right = 1571.0
 offset_bottom = 445.0
 theme = SubResource("Theme_ibiss")
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pretium consectetur fringilla. Nam a condimentum ex. Aliquam aliquet sagittis risus et posuere. Aliquam nisl lectus, faucibus et efficitur sed, tincidunt vitae magna. Nulla volutpat vel enim ut tempus. Sed hendrerit, felis sit amet posuere viverra, turpis sapien lacinia mauris, a laoreet mauris purus non neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer ut diam tortor. In vitae fermentum neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare dignissim sem non hendrerit. Suspendisse rhoncus sem at augue venenatis, quis tempus lacus faucibus. Cras id velit vel felis fringilla tincidunt eget eget velit. Suspendisse arcu dolor, eleifend ut tempor vel, placerat sed dolor. Cras rhoncus, lacus vel interdum euismod, urna dui ultrices sem, sit amet finibus augue tellus quis leo.
 
-[node name="Bubble" type="Sprite2D" parent="."]
-position = Vector2(1043, 200)
-scale = Vector2(0.945833, 0.607407)
-texture = ExtResource("3_c6dvc")
+Vestibulum dictum, erat in malesuada accumsan, nisl ex pharetra erat, ac eleifend ante felis vel lorem. Nunc quis leo metus. Vivamus in volutpat erat. Nam maximus libero ac dui lobortis malesuada. Etiam justo lectus, aliquam non aliquet vitae, tristique quis tellus. Praesent ut fringilla urna. Suspendisse porttitor facilisis interdum. Aliquam fermentum, odio nec aliquam maximus, tellus est lacinia massa, quis egestas quam nisl id eros. Pellentesque tellus ipsum, tristique quis nunc sed, molestie tempor lorem. Curabitur pharetra, libero eu gravida finibus, ipsum turpis porttitor tellus, id finibus felis mi sed lectus. Pellentesque faucibus blandit quam et vehicula. Maecenas ut placerat nibh, nec porttitor augue. Duis malesuada laoreet vehicula. Nulla et sem a tortor porta interdum a quis mi."
 
 [node name="bg_fixes" type="CanvasGroup" parent="."]
 
@@ -120,3 +125,23 @@ position = Vector2(1378, 1043)
 rotation = -0.245343
 scale = Vector2(0.0356864, 0.0356864)
 texture = ExtResource("5_k24pf")
+
+[node name="Accept" type="CanvasGroup" parent="."]
+
+[node name="Button" type="Button" parent="Accept"]
+offset_left = 384.0
+offset_top = 912.0
+offset_right = 504.0
+offset_bottom = 1024.0
+theme = ExtResource("15_0cxu4")
+text = "A"
+
+[node name="Deny" type="CanvasGroup" parent="."]
+
+[node name="Button" type="Button" parent="Deny"]
+offset_left = 768.0
+offset_top = 912.0
+offset_right = 888.0
+offset_bottom = 1024.0
+theme = ExtResource("15_0cxu4")
+text = "D"
