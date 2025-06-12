@@ -14,6 +14,7 @@ config/name="JudgementDay"
 run/main_scene="uid://bgdeq4eulxgoc"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 boot_splash/image="uid://5yk70bncooyn"
 config/icon="uid://5yk70bncooyn"
 
