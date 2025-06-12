@@ -20,7 +20,7 @@ config/icon="uid://5yk70bncooyn"
 
 [autoload]
 
-GlobalBehaviour="*res://GlobalBehaviour.cs"
+GlobalBehaviour="*res://scripts/GlobalBehaviour.cs"
 
 [display]
 

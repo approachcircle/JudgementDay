@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://jsr0jjdfq45j"]
 
-[ext_resource type="Script" uid="uid://klbf762rkrck" path="res://MainMenu.cs" id="1_0ykhv"]
+[ext_resource type="Script" uid="uid://klbf762rkrck" path="res://scripts/MainMenu.cs" id="1_0ykhv"]
 [ext_resource type="LabelSettings" uid="uid://1x53r2q3x8ee" path="res://assets/Title.tres" id="1_yqorp"]
 
 [sub_resource type="Theme" id="Theme_yqorp"]
