@@ -14,6 +14,9 @@ public static class RankCalculator
             if (rank == Rank.D && percentage < value) return rank;
             if (percentage >= value) return rank;
         }
-        return Rank.F;
+        return Rank.D;
     }
+
+    public static int CalculateAccuracy(GameState gameState) =>
+        (int)(gameState.CorrectJudges / (float)gameState.CharactersJudged * 100);
 }

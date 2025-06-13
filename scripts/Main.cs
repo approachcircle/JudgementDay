@@ -8,7 +8,7 @@ public partial class Main : Node2D
     // private readonly Vector2 _targetPlayerPosition = new Vector2(112, 968);
     private readonly Vector2 _targetCharacterPosition = new(1440, 616);
     private Character _characterNode;
-    private readonly GameState _gameState = new();
+    public static GameState GameState { get; private set; } = new();
     private CharacterOutcomeStage _stage;
     private float _gravity = .0f;
     private Color _characterColour = new();
@@ -17,9 +17,12 @@ public partial class Main : Node2D
     
     public override void _Ready()
     {
+        GameState = new GameState();
         AddNewCharacter();
         SetupButtons();
+        Global.UsedCharacters = [];
         _score = GetNode<AnimatedSprite2D>("Score");
+        GetNode<Button>("EndGame").Pressed += () => { GameState.GameEnding = true; };
     }
 
     public override void _PhysicsProcess(double delta)
@@ -40,6 +43,13 @@ public partial class Main : Node2D
 
     public override void _Process(double delta)
     {
+        if (GameState.GameEnding)
+        {
+            PackedScene gameEnd = GD.Load<PackedScene>("res://scenes/GameEnd.tscn");
+            GameEnd.GameState = GameState;
+            GetTree().ChangeSceneToPacked(gameEnd);
+            return;
+        }
         if (Input.IsActionJustPressed("exit"))
         {
             GetTree().ChangeSceneToFile("res://scenes/MainMenu.tscn");
@@ -50,29 +60,29 @@ public partial class Main : Node2D
             AddNewCharacter();
         }
         
-        if (_gameState.Score > 0)
+        if (GameState.Score > 0)
         {
-            _gameState.Trajectory = Trajectory.Neutral;
+            GameState.Trajectory = Trajectory.Winning;   
         } 
-        else if (_gameState.Score < 0)
+        else if (GameState.Score < 0)
         {
-            _gameState.Trajectory = Trajectory.Losing;
+            GameState.Trajectory = Trajectory.Losing;
         }
         else
         {
-            _gameState.Trajectory = Trajectory.Winning;
+            GameState.Trajectory = Trajectory.Neutral;
         }
         
-        if (_gameState.Trajectory != _lastTrajectory)
+        if (GameState.Trajectory != _lastTrajectory)
         {
-            if (_gameState.Score > 0)
+            if (GameState.Score > 0)
                 _score.PlayBackwards("winning");
-            else if (_gameState.Score < 0)
+            else if (GameState.Score < 0)
                 _score.Play("losing");
             else
                 _score.Play("neutral");
             
-            _lastTrajectory = _gameState.Trajectory;
+            _lastTrajectory = GameState.Trajectory;
         }
     }
 
@@ -133,18 +143,18 @@ public partial class Main : Node2D
 
     private void JudgeCharacter(Outcome outcome)
     {
-        _gameState.CharactersJudged++;
+        GameState.CharactersJudged++;
         switch (outcome)
         {
             case Outcome.Heaven:
                 if (!_characterNode.IsGood) // wrong
                 {
-                    _gameState.Score--;
+                    GameState.Score--;
                 }
                 else // correct
                 {
-                    _gameState.Score++;
-                    _gameState.CorrectJudges++;
+                    GameState.Score++;
+                    GameState.CorrectJudges++;
                 }
                 AnimatedSprite2D wings = _characterNode.GetNode<AnimatedSprite2D>("Wings");
                 wings.Visible = true;
@@ -154,12 +164,12 @@ public partial class Main : Node2D
             case Outcome.Hell:
                 if (_characterNode.IsGood) // wrong
                 {
-                    _gameState.Score--;
+                    GameState.Score--;
                 }
                 else // correct
                 {
-                    _gameState.Score++;
-                    _gameState.CorrectJudges++;
+                    GameState.Score++;
+                    GameState.CorrectJudges++;
                 }
                 AnimatedSprite2D trapdoor = GetNode<AnimatedSprite2D>("bg");
                 trapdoor.AnimationFinished += () => { _stage = CharacterOutcomeStage.Dropping; };

@@ -406,3 +406,11 @@ offset_right = 635.5
 offset_bottom = 75.0
 text = "Score"
 label_settings = ExtResource("72_8t55c")
+
+[node name="EndGame" type="Button" parent="."]
+offset_left = 1600.0
+offset_top = 976.0
+offset_right = 1919.0
+offset_bottom = 1080.0
+theme = ExtResource("15_0cxu4")
+text = "End game"

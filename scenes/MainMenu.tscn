@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://jsr0jjdfq45j"]
+[gd_scene load_steps=6 format=3 uid="uid://jsr0jjdfq45j"]
 
 [ext_resource type="Script" uid="uid://klbf762rkrck" path="res://scripts/MainMenu.cs" id="1_0ykhv"]
 [ext_resource type="LabelSettings" uid="uid://1x53r2q3x8ee" path="res://assets/Title.tres" id="1_yqorp"]
 [ext_resource type="AudioStream" uid="uid://0e4wccrduigd" path="res://assets/gavel_cropped.wav" id="3_2wh52"]
+[ext_resource type="Texture2D" uid="uid://ceqqeefbeaajv" path="res://assets/menu_logo.png" id="4_ow34m"]
 
 [sub_resource type="Theme" id="Theme_yqorp"]
 default_font_size = 72
@@ -50,3 +51,8 @@ volume_db = -5.0
 
 [node name="Gavel" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_2wh52")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 576)
+scale = Vector2(0.132292, 0.132292)
+texture = ExtResource("4_ow34m")

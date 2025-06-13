@@ -4,13 +4,13 @@ namespace JudgementDay;
 
 public partial class MainMenu : Control
 {
+	public static PackedScene MainScene { get; set; } = null!;
 	public override void _Ready()
 	{
 		// we don't want to lazy-load the main scene as it feels janky for the game to freeze when pressing play
-		PackedScene mainScene = GD.Load<PackedScene>("res://scenes/MainScene.tscn");
 		GetNode<Button>("Button").Pressed += () =>
 		{
-			GetTree().ChangeSceneToPacked(mainScene);
+			GetTree().ChangeSceneToPacked(MainScene);
 		};
 		AudioStreamPlayer player = GetNode<AudioStreamPlayer>("Player");
 		player.Stream = GD.Load<AudioStreamWav>("res://assets/menu_loop.wav");

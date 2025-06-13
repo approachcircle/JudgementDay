@@ -9,4 +9,5 @@ public class GameState
     public Trajectory Trajectory { get; set; } = Trajectory.Neutral;
     public int CharactersJudged { get; set; } = 0;
     public int CorrectJudges { get; set; } = 0;
+    public bool GameEnding { get; set; } = false;
 }

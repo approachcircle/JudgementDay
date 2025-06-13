@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bidn3iuxx8jo5"]
+[gd_scene load_steps=6 format=3 uid="uid://bidn3iuxx8jo5"]
 
+[ext_resource type="Script" uid="uid://bl7pvjp7mjo5g" path="res://scripts/GameEnd.cs" id="1_ackco"]
 [ext_resource type="FontFile" uid="uid://cyqlmjkmf6jku" path="res://assets/fonts/Facon.ttf" id="1_c2lxx"]
+[ext_resource type="LabelSettings" uid="uid://1x53r2q3x8ee" path="res://assets/Title.tres" id="2_g1wtc"]
 
 [sub_resource type="Theme" id="Theme_g1wtc"]
 default_font = ExtResource("1_c2lxx")
 default_font_size = 612
+
+[sub_resource type="Theme" id="Theme_ackco"]
+default_font_size = 72
 
 [node name="GameEnd" type="Control"]
 layout_mode = 3
@@ -13,12 +18,62 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ackco")
 
 [node name="Rank" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 1304.0
-offset_top = 192.0
+offset_left = 1400.0
+offset_top = 248.0
 offset_right = 1920.0
-offset_bottom = 1080.0
+offset_bottom = 1472.0
 theme = SubResource("Theme_g1wtc")
-text = "S"
+text = "SS"
+fit_content = true
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 40.0
+offset_right = 1460.0
+offset_bottom = 169.0
+text = "Overall rank achieved"
+label_settings = ExtResource("2_g1wtc")
+
+[node name="IncorrectCount" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_top = 320.0
+offset_right = 256.0
+offset_bottom = 512.0
+theme = SubResource("Theme_ackco")
+text = "100"
+fit_content = true
+
+[node name="Score" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_top = 512.0
+offset_right = 832.0
+offset_bottom = 704.0
+theme = SubResource("Theme_ackco")
+text = "Score: 100"
+fit_content = true
+
+[node name="CorrectCount" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 320.0
+offset_right = 512.0
+offset_bottom = 512.0
+theme = SubResource("Theme_ackco")
+text = "100"
+fit_content = true
+
+[node name="Accuracy" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1168.0
+offset_top = 840.0
+offset_right = 1856.0
+offset_bottom = 1040.0
+theme = SubResource("Theme_ackco")
+text = "Accuracy: 100%"
+fit_content = true
+vertical_alignment = 1

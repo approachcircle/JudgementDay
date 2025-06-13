@@ -79,6 +79,7 @@ public partial class SplashScreen : Control
 		CheckDecisionDifference();
         LoadCharacterTextures();
         LoadNextScene();
+        LoadMainGame();
 	}
 
 	private static void LoadCharacterTextures()
@@ -93,6 +94,11 @@ public partial class SplashScreen : Control
 	private void LoadNextScene()
 	{
 		_nextScene = GD.Load<PackedScene>("res://scenes/MainMenu.tscn");
+	}
+
+	private void LoadMainGame()
+	{
+		MainMenu.MainScene = GD.Load<PackedScene>("res://scenes/MainScene.tscn");
 	}
 
 	private static void CheckDecisionDifference()

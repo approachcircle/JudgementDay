@@ -17,7 +17,7 @@ public partial class Character : Node2D
     public Texture2D Texture
     {
         get => _texture;
-        set
+        private set
         {
             _texture = value;
             GetNode<Sprite2D>("Sprite").Texture = Texture;
@@ -26,9 +26,14 @@ public partial class Character : Node2D
 
     public override void _Ready()
     {
-        Texture = IsPlayer
+        Texture2D texture = IsPlayer
             ? GD.Load<Texture2D>("res://assets/chars/main_char_wingless.png")
             : GetRandomConstrainedTexture();
+        if (texture == null)
+        {
+            return;
+        }
+        Texture = texture;
     }
 
     public override void _Process(double delta)
@@ -38,6 +43,11 @@ public partial class Character : Node2D
     
     private static Texture2D GetRandomConstrainedTexture()
     {
+        if (Global.UsedCharacters.Count == Global.CharacterCount)
+        {
+            Main.GameState.GameEnding = true;
+            return null;
+        }
         int index;
         do
         {

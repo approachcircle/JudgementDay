@@ -10,8 +10,7 @@ public enum Rank
     A,
     B,
     C,
-    D,
-    F
+    D
 }
 
 public class RankValue
