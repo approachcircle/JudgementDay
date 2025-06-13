@@ -80,6 +80,7 @@ public partial class SplashScreen : Control
         LoadCharacterTextures();
         LoadNextScene();
         LoadMainGame();
+        LessonState.SetLessonCount();
 	}
 
 	private static void LoadCharacterTextures()

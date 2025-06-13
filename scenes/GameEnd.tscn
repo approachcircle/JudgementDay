@@ -41,8 +41,9 @@ label_settings = ExtResource("2_g1wtc")
 
 [node name="IncorrectCount" type="RichTextLabel" parent="."]
 layout_mode = 0
+offset_left = 64.0
 offset_top = 320.0
-offset_right = 256.0
+offset_right = 320.0
 offset_bottom = 512.0
 theme = SubResource("Theme_ackco")
 text = "100"
@@ -50,8 +51,9 @@ fit_content = true
 
 [node name="Score" type="RichTextLabel" parent="."]
 layout_mode = 0
+offset_left = 64.0
 offset_top = 512.0
-offset_right = 832.0
+offset_right = 896.0
 offset_bottom = 704.0
 theme = SubResource("Theme_ackco")
 text = "Score: 100"

@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://8b7q0p2mmv6v"]
+
+[ext_resource type="PackedScene" uid="uid://cp4ng4s88pd62" path="res://scenes/lessons/LessonNav.tscn" id="1_maj0d"]
+[ext_resource type="LabelSettings" uid="uid://bes7hnw4oc8wl" path="res://TutorialParagraph.tres" id="2_0ia4o"]
+[ext_resource type="LabelSettings" uid="uid://1x53r2q3x8ee" path="res://assets/Title.tres" id="3_c3ums"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LessonNav" parent="." instance=ExtResource("1_maj0d")]
+layout_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 160.0
+offset_right = 1888.0
+offset_bottom = 808.0
+text = "Upon opening the game, the splash screen will play. During this time, the game will start loading important game files. Usually these files are loaded before the animation is finished, but in the case that they are not loaded in time, a loading spinner will be shown. You may skip the splash screen using the spacebar or the enter key, but only if the files have finished loading. If not, the spinner will show indicating that you must wait longer before the main menu is shown. This may happen in the case that the game is running on a slow hard drive or over a slow network connection."
+label_settings = ExtResource("2_0ia4o")
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 736.0
+offset_right = 1184.0
+offset_bottom = 129.0
+text = "Extra info"
+label_settings = ExtResource("3_c3ums")

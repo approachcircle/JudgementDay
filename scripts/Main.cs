@@ -23,6 +23,7 @@ public partial class Main : Node2D
         Global.UsedCharacters = [];
         _score = GetNode<AnimatedSprite2D>("Score");
         GetNode<Button>("EndGame").Pressed += () => { GameState.GameEnding = true; };
+        _score.Play("neutral");
     }
 
     public override void _PhysicsProcess(double delta)

@@ -8,9 +8,14 @@ public partial class MainMenu : Control
 	public override void _Ready()
 	{
 		// we don't want to lazy-load the main scene as it feels janky for the game to freeze when pressing play
-		GetNode<Button>("Button").Pressed += () =>
+		GetNode<Button>("Play").Pressed += () =>
 		{
 			GetTree().ChangeSceneToPacked(MainScene);
+		};
+		GetNode<Button>("Tutorial").Pressed += () =>
+		{
+			LessonState.CurrentLesson = 1;
+			GetTree().ChangeSceneToFile("res://scenes/lessons/Lesson1.tscn");
 		};
 		AudioStreamPlayer player = GetNode<AudioStreamPlayer>("Player");
 		player.Stream = GD.Load<AudioStreamWav>("res://assets/menu_loop.wav");

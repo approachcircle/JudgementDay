@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3qnrkihcsqy5"]
+
+[ext_resource type="PackedScene" uid="uid://cp4ng4s88pd62" path="res://scenes/lessons/LessonNav.tscn" id="1_a3d4e"]
+[ext_resource type="LabelSettings" uid="uid://bes7hnw4oc8wl" path="res://TutorialParagraph.tres" id="2_8en05"]
+[ext_resource type="LabelSettings" uid="uid://1x53r2q3x8ee" path="res://assets/Title.tres" id="3_f6e37"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LessonNav" parent="." instance=ExtResource("1_a3d4e")]
+layout_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 160.0
+offset_right = 1888.0
+offset_bottom = 808.0
+text = "After all characters have been judged, or you choose to end the game, you will be taken to a results screen where you can view your score, judgement accuracy, and how many decisions you made correctly and incorrectly. Based on your accuracy, you will be given an overall rank for your run."
+label_settings = ExtResource("2_8en05")
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 720.0
+offset_right = 1200.0
+offset_bottom = 129.0
+text = "Game end"
+label_settings = ExtResource("3_f6e37")

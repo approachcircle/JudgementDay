@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp4ng4s88pd62"]
+
+[ext_resource type="Theme" uid="uid://clh4c3g4c8du1" path="res://assets/AcceptDeny.tres" id="1_a3j3u"]
+[ext_resource type="Script" uid="uid://omjn03u6pose" path="res://scripts/LessonNav.cs" id="1_mp1ee"]
+[ext_resource type="LabelSettings" uid="uid://1x53r2q3x8ee" path="res://assets/Title.tres" id="2_a3j3u"]
+
+[node name="LessonNav" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mp1ee")
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 832.0
+offset_right = 416.0
+offset_bottom = 960.0
+theme = ExtResource("1_a3j3u")
+text = "Back"
+
+[node name="Next" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1504.0
+offset_top = 832.0
+offset_right = 1792.0
+offset_bottom = 960.0
+theme = ExtResource("1_a3j3u")
+text = "Next"
+
+[node name="Lesson" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -488.0
+offset_right = -28.0
+offset_bottom = 129.0
+grow_horizontal = 0
+text = "Lesson ?/?"
+label_settings = ExtResource("2_a3j3u")

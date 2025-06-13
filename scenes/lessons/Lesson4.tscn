@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://cv7jvkt6b6ewy"]
+
+[ext_resource type="PackedScene" uid="uid://cp4ng4s88pd62" path="res://scenes/lessons/LessonNav.tscn" id="1_jhsdq"]
+[ext_resource type="LabelSettings" uid="uid://bes7hnw4oc8wl" path="res://TutorialParagraph.tres" id="2_7s23s"]
+[ext_resource type="LabelSettings" uid="uid://1x53r2q3x8ee" path="res://assets/Title.tres" id="3_c13vw"]
+[ext_resource type="Texture2D" uid="uid://drfh20xkvugu7" path="res://assets/score/score_frames00.png" id="4_c13vw"]
+[ext_resource type="Texture2D" uid="uid://kewmgcngood3" path="res://assets/score/score_frames30.png" id="5_pd3j1"]
+[ext_resource type="Texture2D" uid="uid://b7wjiajtiaggy" path="res://assets/score/score_frames55.png" id="6_706wm"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LessonNav" parent="." instance=ExtResource("1_jhsdq")]
+layout_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 160.0
+offset_right = 1888.0
+offset_bottom = 808.0
+text = "After decisions are made, your score indicator may or may not react to them. Depending on the direction that the scales are hanging, you have made either majority correct decisions, majority incorrect decisions, or you are neutral. If you are performing well, the scale will tip in the direction of the wings, otherwise, it will tip in the direction of the fire."
+label_settings = ExtResource("2_7s23s")
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 616.0
+offset_right = 1312.0
+offset_bottom = 129.0
+text = "Score indicator"
+label_settings = ExtResource("3_c13vw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1314, 890)
+scale = Vector2(0.225926, 0.225926)
+texture = ExtResource("4_c13vw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(962, 890)
+scale = Vector2(0.225926, 0.225926)
+texture = ExtResource("5_pd3j1")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(610, 890)
+scale = Vector2(0.225926, 0.225926)
+texture = ExtResource("6_706wm")

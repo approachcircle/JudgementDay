@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://u54lbowshiqo"]
+
+[ext_resource type="PackedScene" uid="uid://cp4ng4s88pd62" path="res://scenes/lessons/LessonNav.tscn" id="1_eotlh"]
+[ext_resource type="LabelSettings" uid="uid://bes7hnw4oc8wl" path="res://TutorialParagraph.tres" id="2_vh03g"]
+[ext_resource type="LabelSettings" uid="uid://1x53r2q3x8ee" path="res://assets/Title.tres" id="3_id38t"]
+[ext_resource type="Texture2D" uid="uid://bfnpi3c5cqfv0" path="res://assets/tutorial_assets/decisions.png" id="4_id38t"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LessonNav" parent="." instance=ExtResource("1_eotlh")]
+layout_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 160.0
+offset_right = 1888.0
+offset_bottom = 808.0
+text = "During gameplay, you will receive a list of decisions a character has made during their lifetime. You must use these decisions to base your decision on whether or not the character is a good person. Be careful, each decision has a moral weighting, and some are much more impactful than others."
+label_settings = ExtResource("2_vh03g")
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 688.0
+offset_right = 1233.0
+offset_bottom = 129.0
+text = "Decision list"
+label_settings = ExtResource("3_id38t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 824)
+texture = ExtResource("4_id38t")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://jsr0jjdfq45j"]
+[gd_scene load_steps=7 format=3 uid="uid://jsr0jjdfq45j"]
 
 [ext_resource type="Script" uid="uid://klbf762rkrck" path="res://scripts/MainMenu.cs" id="1_0ykhv"]
 [ext_resource type="LabelSettings" uid="uid://1x53r2q3x8ee" path="res://assets/Title.tres" id="1_yqorp"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://ceqqeefbeaajv" path="res://assets/menu_logo.png" id="4_ow34m"]
 
 [sub_resource type="Theme" id="Theme_yqorp"]
+default_font_size = 72
+
+[sub_resource type="Theme" id="Theme_ow34m"]
 default_font_size = 72
 
 [node name="MainMenu" type="Control"]
@@ -30,7 +33,7 @@ grow_horizontal = 2
 text = "Judgement day"
 label_settings = ExtResource("1_yqorp")
 
-[node name="Button" type="Button" parent="."]
+[node name="Play" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -56,3 +59,11 @@ stream = ExtResource("3_2wh52")
 position = Vector2(960, 576)
 scale = Vector2(0.132292, 0.132292)
 texture = ExtResource("4_ow34m")
+
+[node name="Tutorial" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1408.0
+offset_right = 1924.0
+offset_bottom = 128.0
+theme = SubResource("Theme_ow34m")
+text = "How to play"

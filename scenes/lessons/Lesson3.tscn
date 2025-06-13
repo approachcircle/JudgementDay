@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0t1stmig220h"]
+
+[ext_resource type="PackedScene" uid="uid://cp4ng4s88pd62" path="res://scenes/lessons/LessonNav.tscn" id="1_578lw"]
+[ext_resource type="LabelSettings" uid="uid://bes7hnw4oc8wl" path="res://TutorialParagraph.tres" id="2_oikx1"]
+[ext_resource type="LabelSettings" uid="uid://1x53r2q3x8ee" path="res://assets/Title.tres" id="3_t75lc"]
+[ext_resource type="Texture2D" uid="uid://drbjal8lpj5f4" path="res://assets/tutorial_assets/outcomes.png" id="4_578lw"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LessonNav" parent="." instance=ExtResource("1_578lw")]
+layout_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 160.0
+offset_right = 1888.0
+offset_bottom = 808.0
+text = "When you are ready to make your decision, you will have two buttons at your disposal. The green tick means that the character may ascend as they are a good person, and the red cross means that the character will drop and pay for their evil deeds. This choice contributes to your score depending on if it was correct or not."
+label_settings = ExtResource("2_oikx1")
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 408.0
+offset_right = 1392.0
+offset_bottom = 129.0
+text = "Judgement outcomes"
+label_settings = ExtResource("3_t75lc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 880)
+texture = ExtResource("4_578lw")
