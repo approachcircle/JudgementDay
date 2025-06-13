@@ -1,4 +1,4 @@
-[gd_scene load_steps=145 format=3 uid="uid://bgdeq4eulxgoc"]
+[gd_scene load_steps=135 format=3 uid="uid://bgdeq4eulxgoc"]
 
 [ext_resource type="Script" uid="uid://l80mch6nqjmg" path="res://scripts/SplashScreen.cs" id="1_l2g8s"]
 [ext_resource type="Texture2D" uid="uid://bxhbbowpjtabg" path="res://assets/loading/loading_0.png" id="4_vjpje"]
@@ -131,16 +131,6 @@
 [ext_resource type="Texture2D" uid="uid://deq2h7em4kilw" path="res://assets/splash/splash_frame67.png" id="129_wq6r3"]
 [ext_resource type="Texture2D" uid="uid://csf0m8ki70tvn" path="res://assets/splash/splash_frame68.png" id="130_s4c7l"]
 [ext_resource type="Texture2D" uid="uid://c1lit5y6j5yfg" path="res://assets/splash/splash_frame69.png" id="131_qmsqq"]
-[ext_resource type="Texture2D" uid="uid://bptbde5nibmod" path="res://assets/splash/splash_frame70.png" id="132_e1ja7"]
-[ext_resource type="Texture2D" uid="uid://k1ut2fdut4or" path="res://assets/splash/splash_frame71.png" id="133_s046n"]
-[ext_resource type="Texture2D" uid="uid://clrj32eg11upx" path="res://assets/splash/splash_frame72.png" id="134_5s8m1"]
-[ext_resource type="Texture2D" uid="uid://bnsnbi6qc4cpf" path="res://assets/splash/splash_frame73.png" id="135_dfocv"]
-[ext_resource type="Texture2D" uid="uid://v0botqlvlr1q" path="res://assets/splash/splash_frame74.png" id="136_kp58i"]
-[ext_resource type="Texture2D" uid="uid://tkmku8dxqgti" path="res://assets/splash/splash_frame75.png" id="137_fl6cw"]
-[ext_resource type="Texture2D" uid="uid://bc0cks72b8n0j" path="res://assets/splash/splash_frame76.png" id="138_uwni7"]
-[ext_resource type="Texture2D" uid="uid://d01nwcl0qfvgp" path="res://assets/splash/splash_frame77.png" id="139_el44p"]
-[ext_resource type="Texture2D" uid="uid://bpbkegcuaft3l" path="res://assets/splash/splash_frame78.png" id="140_yb16x"]
-[ext_resource type="Texture2D" uid="uid://c12kaio2axmlb" path="res://assets/splash/splash_frame79.png" id="141_evlht"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_60xqj"]
 animations = [{
@@ -354,36 +344,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("131_qmsqq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("132_e1ja7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("133_s046n")
-}, {
-"duration": 1.0,
-"texture": ExtResource("134_5s8m1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("135_dfocv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("136_kp58i")
-}, {
-"duration": 1.0,
-"texture": ExtResource("137_fl6cw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("138_uwni7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("139_el44p")
-}, {
-"duration": 1.0,
-"texture": ExtResource("140_yb16x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("141_evlht")
 }],
 "loop": false,
 "name": &"splash",

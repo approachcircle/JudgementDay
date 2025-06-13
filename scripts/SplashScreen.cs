@@ -13,10 +13,11 @@ public partial class SplashScreen : Control
 	private bool _ready;
 	// if the thread has finished its work and the game is "loaded"
 	private bool _canTransfer;
-	private Thread _initialisationThread;
+	private GodotThread _initialisationThread;
 	private CanvasGroup _loadingGroup;
 	private AnimatedSprite2D _loadingSprite;
 	private AnimatedSprite2D _splashSprite;
+	private PackedScene _nextScene;
 	
 	public override void _Ready()
 	{
@@ -28,8 +29,8 @@ public partial class SplashScreen : Control
 		_loadingGroup = GetNode<CanvasGroup>("Loading");
 		_loadingSprite = _loadingGroup.GetNode<AnimatedSprite2D>("Loading");
 		_splashSprite = GetNode<AnimatedSprite2D>("Splash");
-		_initialisationThread = new Thread(InitialiseGame);
-		_initialisationThread.Start();
+		_initialisationThread = new GodotThread();
+		_initialisationThread.Start(Callable.From(InitialiseGame));
 		_splashSprite.AnimationFinished += () =>
 		{
 			_ready = true;
@@ -40,8 +41,11 @@ public partial class SplashScreen : Control
 	public override void _Process(double delta)
 	{
 		// if the player is impatient, allow transfer as soon as the thread has finished its work
-		if (Input.IsActionJustPressed("ui_accept") && _canTransfer) Transfer();
-		_canTransfer = _initialisationThread.ThreadState is not ThreadState.Running and not ThreadState.WaitSleepJoin;
+		if (Input.IsActionJustPressed("ui_accept"))
+		{
+			_ready = true;
+		}
+		_canTransfer = !_initialisationThread.IsAlive();
 		// the thread is still doing work; not safe to transfer yet, so we'll show the player a spinner
 		if (_ready && !_canTransfer)
 		{
@@ -56,20 +60,25 @@ public partial class SplashScreen : Control
 		{
 			Transfer();
 		}
-		Console.WriteLine(_initialisationThread.ThreadState);
 	}
 
 	private void Transfer()
 	{
+		if (_initialisationThread.IsAlive())
+		{
+			GD.PushWarning("thread is still doing work, so we're about to block the main thread...");
+		}
+		_initialisationThread.WaitToFinish();
 		// this will block EVERYTHING until the thread has finished its work,
-		_initialisationThread.Join();
-		GetTree().ChangeSceneToFile("res://scenes/MainMenu.tscn");
+		// GetTree().ChangeSceneToFile("res://scenes/MainMenu.tscn");
+		GetTree().ChangeSceneToPacked(_nextScene);
 	}
 
 	private void InitialiseGame()
 	{
 		CheckDecisionDifference();
         LoadCharacterTextures();
+        LoadNextScene();
 	}
 
 	private static void LoadCharacterTextures()
@@ -79,6 +88,11 @@ public partial class SplashScreen : Control
 		{
 			Global.CharacterTextures[i - 1] = GD.Load<Texture2D>($"res://assets/chars/character{i}.png");
 		}
+	}
+
+	private void LoadNextScene()
+	{
+		_nextScene = GD.Load<PackedScene>("res://scenes/MainMenu.tscn");
 	}
 
 	private static void CheckDecisionDifference()
@@ -91,7 +105,7 @@ public partial class SplashScreen : Control
 				GD.PushWarning($"decisions are in favour of good! +{sum}");
 				break;
 			case < 0:
-				GD.PushWarning($"decisions are in favour of bad! +{sum}");
+				GD.PushWarning($"decisions are in favour of bad! -{sum}");
 				break;
 		}
 	}

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bidn3iuxx8jo5"]
+
+[ext_resource type="FontFile" uid="uid://cyqlmjkmf6jku" path="res://assets/fonts/Facon.ttf" id="1_c2lxx"]
+
+[sub_resource type="Theme" id="Theme_g1wtc"]
+default_font = ExtResource("1_c2lxx")
+default_font_size = 612
+
+[node name="GameEnd" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Rank" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1304.0
+offset_top = 192.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = SubResource("Theme_g1wtc")
+text = "S"

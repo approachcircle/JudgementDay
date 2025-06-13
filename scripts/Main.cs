@@ -8,15 +8,18 @@ public partial class Main : Node2D
     // private readonly Vector2 _targetPlayerPosition = new Vector2(112, 968);
     private readonly Vector2 _targetCharacterPosition = new(1440, 616);
     private Character _characterNode;
-    private GameState _gameState = new();
+    private readonly GameState _gameState = new();
     private CharacterOutcomeStage _stage;
     private float _gravity = .0f;
     private Color _characterColour = new();
+    private AnimatedSprite2D _score;
+    private Trajectory _lastTrajectory = Trajectory.Neutral;
     
     public override void _Ready()
     {
         AddNewCharacter();
         SetupButtons();
+        _score = GetNode<AnimatedSprite2D>("Score");
     }
 
     public override void _PhysicsProcess(double delta)
@@ -46,6 +49,31 @@ public partial class Main : Node2D
             _characterNode.QueueFree();
             AddNewCharacter();
         }
+        
+        if (_gameState.Score > 0)
+        {
+            _gameState.Trajectory = Trajectory.Neutral;
+        } 
+        else if (_gameState.Score < 0)
+        {
+            _gameState.Trajectory = Trajectory.Losing;
+        }
+        else
+        {
+            _gameState.Trajectory = Trajectory.Winning;
+        }
+        
+        if (_gameState.Trajectory != _lastTrajectory)
+        {
+            if (_gameState.Score > 0)
+                _score.PlayBackwards("winning");
+            else if (_gameState.Score < 0)
+                _score.Play("losing");
+            else
+                _score.Play("neutral");
+            
+            _lastTrajectory = _gameState.Trajectory;
+        }
     }
 
     private void AddNewCharacter()
@@ -68,15 +96,16 @@ public partial class Main : Node2D
         speech.Text = "";
         foreach (Decision decision in _characterNode.Decisions)
         {
-            if (decision.DecisionWeight > 0)
-            {
-                speech.Text += "\u2705"; // green checkmark
-            }
-            else
-            {
-                speech.Text += "\u274C"; // red cross
-            }
-            speech.Text += decision.DecisionDescription + "\n";
+            //
+            // if (decision.DecisionWeight > 0)
+            // {
+            //     speech.Text += "\u2705"; // green checkmark
+            // }
+            // else
+            // {
+            //     speech.Text += "\u274C"; // red cross
+            // }
+            speech.Text += "\u2022 " + decision.DecisionDescription + "\n";
         }
     }
 
@@ -104,17 +133,34 @@ public partial class Main : Node2D
 
     private void JudgeCharacter(Outcome outcome)
     {
+        _gameState.CharactersJudged++;
         switch (outcome)
         {
             case Outcome.Heaven:
-                if (!_characterNode.IsGood) _gameState.Score--; else _gameState.Score++;
+                if (!_characterNode.IsGood) // wrong
+                {
+                    _gameState.Score--;
+                }
+                else // correct
+                {
+                    _gameState.Score++;
+                    _gameState.CorrectJudges++;
+                }
                 AnimatedSprite2D wings = _characterNode.GetNode<AnimatedSprite2D>("Wings");
                 wings.Visible = true;
                 wings.Play();
                 _stage = CharacterOutcomeStage.Flying;
                 break;
             case Outcome.Hell:
-                if (_characterNode.IsGood) _gameState.Score--; else _gameState.Score++;
+                if (_characterNode.IsGood) // wrong
+                {
+                    _gameState.Score--;
+                }
+                else // correct
+                {
+                    _gameState.Score++;
+                    _gameState.CorrectJudges++;
+                }
                 AnimatedSprite2D trapdoor = GetNode<AnimatedSprite2D>("bg");
                 trapdoor.AnimationFinished += () => { _stage = CharacterOutcomeStage.Dropping; };
                 trapdoor.Play("drop");
@@ -122,7 +168,6 @@ public partial class Main : Node2D
             default:
                 throw new ArgumentOutOfRangeException(nameof(outcome), outcome, "outcome is unspecified");
         }
-        GD.Print($"Score: {_gameState.Score}");
     }
 
     private void ApplyCharacterGravity(double delta, bool falling)

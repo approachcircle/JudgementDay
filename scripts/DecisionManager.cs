@@ -72,7 +72,7 @@ public static class DecisionManager
 			Random random = new Random();
 			for (int i = 0; i < DecisionRarities.Length; i++)
 			{
-				if (random.Next(0, DecisionRarities[i]) == DecisionRarities.Length / 2)
+				if (random.Next(0, DecisionRarities[i]) == DecisionRarities[i] / 2)
 				{
 					decisionCandidates.Add(new Decision
 					{
