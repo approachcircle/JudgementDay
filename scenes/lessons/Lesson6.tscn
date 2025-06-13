@@ -21,7 +21,9 @@ offset_left = 32.0
 offset_top = 160.0
 offset_right = 1888.0
 offset_bottom = 808.0
-text = "Upon opening the game, the splash screen will play. During this time, the game will start loading important game files. Usually these files are loaded before the animation is finished, but in the case that they are not loaded in time, a loading spinner will be shown. You may skip the splash screen using the spacebar or the enter key, but only if the files have finished loading. If not, the spinner will show indicating that you must wait longer before the main menu is shown. This may happen in the case that the game is running on a slow hard drive or over a slow network connection."
+text = "Upon opening the game, the splash screen will play. During this time, the game will start loading important game files. Usually these files are loaded before the animation is finished, but in the case that they are not loaded in time, a loading spinner will be shown. You may skip the splash screen using the spacebar or the enter key, but only if the files have finished loading. If not, the spinner will show indicating that you must wait longer before the main menu is shown. This may happen in the case that the game is running on a slow hard drive or over a slow network connection.
+
+You can also press escape on most screens to either close the game, or return to the main menu!"
 label_settings = ExtResource("2_0ia4o")
 autowrap_mode = 3
 
