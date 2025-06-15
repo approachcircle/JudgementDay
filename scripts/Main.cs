@@ -183,9 +183,9 @@ public partial class Main : Node2D
 
     private void ApplyCharacterGravity(double delta, bool falling)
     {
-        _gravity += 20 * (float)delta;
         if (falling)
         {
+            _gravity += 20 * (float)delta;
             if (_characterNode.Position.Y < 960)
             {
                 _characterNode.SetPosition(new Vector2(_characterNode.Position.X, _characterNode.Position.Y + _gravity));
@@ -197,6 +197,7 @@ public partial class Main : Node2D
         }
         else
         {
+            _gravity += 10 * (float)delta;
             // < 124
             if (_characterNode.Position.Y > 124 - _characterNode.Texture.GetHeight())
             {
@@ -213,15 +214,18 @@ public partial class Main : Node2D
     private void BurnCharacter()
     {
         _characterColour = _characterNode.Modulate;
-        _characterColour.A -= 0.1f;
-        _characterColour.R -= 0.1f;
-        _characterColour.G -= 0.1f;
-        _characterColour.B -= 0.1f;
-        _characterNode.SetModulate(_characterColour);
-        if (_characterColour.A <= 0)
+        _characterColour.R -= 0.05f;
+        _characterColour.G -= 0.05f;
+        _characterColour.B -= 0.05f;
+        if (_characterColour.R <= 0)
         {
-            _stage = CharacterOutcomeStage.Dead;
+            if (_characterColour.A > 0) {
+                _characterColour.A -= 0.1f;
+            } else {
+                _stage = CharacterOutcomeStage.Dead;
+            }
         }
+        _characterNode.SetModulate(_characterColour);
     }
 }
 
